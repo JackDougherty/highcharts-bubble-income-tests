@@ -2,7 +2,7 @@
 based on CT Mirror and Stanford CEPA
 
 ## demo
-- https://jackdougherty.github.io/highcharts-incomes-tests-ct/
+- https://jackdougherty.github.io/highcharts-income-tests-ct/
 
 ## data and credits
 - Andrew Ba Tran, CT Mirror/TrendCT

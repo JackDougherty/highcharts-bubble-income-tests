@@ -4,23 +4,27 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Family Income and Educational Outcomes</title>
-    <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'> -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="http://code.highcharts.com/highcharts.js">
     </script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
-<!--
-    <link rel=StyleSheet href="http://projects.ctmirror.org/libs/universal.css" type="text/css">
-    <link rel=StyleSheet href="http://projects.ctmirror.org/content/trend/2015/7/incidents/scatter/libs/style.css" type="text/css"> -->
+    <!-- hide links -->
+    <style>
+      a:link {
+        text-decoration: none;
+        color: black;
+      }
+      a:visited {
+        text-decoration: none;
+        color: black;
+      }
+    </style>
 </head>
 
 <body>
-    <div class="interactiveContainer">
-        <div class="graphicHeader"></div>
-
-        <div id="container"></div>
-                <div class="explainer">Median Family Income and School District 6th Grade Average NAEP Math/Reading Scores by grade levels above/behind, 2009-12. </div>
-        <div class="sourceline">Data: Sean Reardon et al. <a href='https://cepa.stanford.edu/seda/download?nid=1727&destination=node/1717'>Stanford Education Data Archive</a>; Design adapted from Andrew Ba Tran, <a href="http://trendct.org/2016/05/06/wealth-and-grades-compare-connecticuts-school-districts/">TrendCT.org</a>. </div>
+  <div id="container"></div>
+  <div><small>Data: <a href='https://cepa.stanford.edu/seda/download?nid=1727&destination=node/1717'>Sean Reardon et al., Stanford Univ.</a>; Design adapted from <a href="http://trendct.org/2016/05/06/wealth-and-grades-compare-connecticuts-school-districts/">Andrew Ba Tran, TrendCT.org</a>. </small></div>
+  <div></br>Median Family Income and School District 6th Grade Average NAEP Math/Reading Scores by grade levels below/above, 2009-12. </div>
         <script>
         $(function() {
             $('#container').highcharts({
@@ -58,8 +62,8 @@
                         style: {
                             fontFamily: "Arial",
                             color: "#000",
-                            fontSize: 72,
-                            fontWeight: "100"
+                            fontSize: "24px",
+                            // fontWeight: "100"
                         }
                     },
                     labels: {
@@ -67,8 +71,7 @@
                         style: {
                             fontFamily: "Arial",
                             color: "#000",
-                            fontSize: 36,
-                            fontWeight: "100"
+                            fontSize: "18px",
                         },
                         formatter: function() {
                             return "$" + comma(this.value) + "";
@@ -79,23 +82,21 @@
                     min: -3,
                     tickPixelInterval: 50,
                     title: {
-                        text: 'Test Scores',
+                        text: 'Grades Below/Above',
                         style: {
-                            fontFamily: "Source Sans Pro, Arial",
+                            fontFamily: "Arial",
                             color: "#000",
-                            fontSize: 24,
-                            fontWeight: "100"
+                            fontSize: "24px",
                         }
                     },
                     labels: {
                         style: {
-                            fontFamily: "Source Sans Pro, Arial",
-                            color: "#aaa",
-                            fontSize: 13,
-                            fontWeight: "100"
+                            fontFamily: "Arial",
+                            color: "#000",
+                            fontSize: "18px",
                         },
                         formatter: function() {
-                            return "" + comma(this.value) + " g";
+                            return "" + comma(this.value) + " Gr";
                         }
                     },
                     lineColor: "#eee"
@@ -108,31 +109,21 @@
                     useHTML: true,
                     headerFormat: '<div class="tooltipHead">{point.key}</div>',
                     formatter: function() {
-                        return "<div class='toolTipper'><b>" + this.series.name + "</b><br><div class='kicker'>Grades above/below avg.</div>" + comma(this.y) + "</div><div class='tooltipbottom'><div class='kicker'>Median income</div>$" + comma(this.key) + "</div>";
+                        return "<div class='toolTipper'><b>" + this.series.name + "</b><br><div class='kicker'>Grades below/above avg.</div>" + comma(this.y) + "</div><div class='tooltipbottom'><div class='kicker'>Median income</div>$" + comma(this.key) + "</div>";
                     },
                     //          formatter: function() {
                     //  return "<h2>" + this.series.name + "</h2><br><b>Density:</b> " +  Math.round(this.y) + " per sq. mile<br><b>Times won per 1,000 people:</b> " +  comma(this.x);
                     // },
                     style: {
-                        fontFamily: "Lato, Arial",
+                        fontFamily: "Arial",
                         color: "#333",
-                        fontSize: 14,
+                        fontSize: "12px",
                         opacity: 1,
                         fontWeight: "400"
                     }
                 },
                 legend: {
-                    layout: 'vertical',
-                    align: 'right',
-                    verticalAlign: 'middle',
-                    borderWidth: 0,
                     enabled: false,
-                    itemStyle: {
-                        fontFamily: "Source Sans Pro, Arial",
-                        color: "#000",
-                        fontSize: 24,
-                        fontWeight: "100"
-                    }
                 },
                 series: data
             });

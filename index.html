@@ -23,7 +23,6 @@
 
 <body>
   <div id="container"></div>
-  <div><small>Data: <a href='https://cepa.stanford.edu/seda/download?nid=1727&destination=node/1717'>Sean Reardon et al., Stanford Univ.</a>; Design adapted from <a href="http://trendct.org/2016/05/06/wealth-and-grades-compare-connecticuts-school-districts/">Andrew Ba Tran, TrendCT.org</a>. </small></div>
   <div></br>Median Family Income and School District 6th Grade Average NAEP Math/Reading Scores by grade levels below/above, 2009-12. </div>
         <script>
         $(function() {
@@ -34,7 +33,15 @@
                 title: {
                     text: 'Family Income and Educational Outcomes in Connecticut',
                     style: {
+                        fontFamily: "Arial",
+                        color: "#000",
+                        fontSize: "28px",
                     }
+                },
+                credits: {
+                  enabled: true,
+                  text: 'Data: Sean Reardon et al., Stanford Univ; Design adapted from Andrew Ba Tran, TrendCT.org',
+                  href: 'http://trendct.org/2016/05/06/wealth-and-grades-compare-connecticuts-school-districts/'
                 },
                 plotOptions: {
                     bubble: {
@@ -56,9 +63,9 @@
                 },
                 xAxis: {
                     min: 0,
-                    tickPixelInterval: 100,
+                    tickPixelInterval: 200,
                     title: {
-                        text: 'Income',
+                        text: '',
                         style: {
                             fontFamily: "Arial",
                             color: "#000",
@@ -79,6 +86,7 @@
                 },
                 yAxis: {
                     min: -3,
+                    max: 3,
                     tickPixelInterval: 50,
                     title: {
                         text: 'Grades Below/Above',

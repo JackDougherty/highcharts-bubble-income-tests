@@ -1,0 +1,913 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Family Income and Educational Outcomes</title>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.highcharts.com/highcharts.js">
+    </script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+<!--
+    <link rel=StyleSheet href="http://projects.ctmirror.org/libs/universal.css" type="text/css">
+    <link rel=StyleSheet href="http://projects.ctmirror.org/content/trend/2015/7/incidents/scatter/libs/style.css" type="text/css"> -->
+</head>
+
+<body>
+    <div class="interactiveContainer">
+        <div class="graphicHeader"></div>
+
+        <div id="container"></div>
+                <div class="explainer">Median Family Income and School District 6th Grade Average NAEP Math/Reading Scores by grade levels above/behind, 2009-12. </div>
+        <div class="sourceline">Data: Sean Reardon et al. <a href='https://cepa.stanford.edu/seda/download?nid=1727&destination=node/1717'>Stanford Education Data Archive</a>; Design adapted from Andrew Ba Tran, <a href="http://trendct.org/2016/05/06/wealth-and-grades-compare-connecticuts-school-districts/">TrendCT.org</a>. </div>
+        <script>
+        $(function() {
+            $('#container').highcharts({
+                chart: {
+                    type: 'bubble'
+                },
+                title: {
+                    text: 'Family Income and Educational Outcomes in Connecticut',
+                    style: {
+                    }
+                },
+                plotOptions: {
+                    bubble: {
+                        color: "rgba(252,114,110,.9)",
+                        lineColor: 'black',
+                        minSize:1,
+                        maxSize:30,
+                        marker: {
+                        lineColor:'black',
+                        states:{
+                            hover:{
+                                lineWidth: 3,
+                                lineColor: 'white'
+                            }
+                        }
+                    }
+                    },
+
+                },
+                xAxis: {
+                    min: 0,
+                    tickPixelInterval: 100,
+                    title: {
+                        text: 'Income',
+                        style: {
+                            fontFamily: "Arial",
+                            color: "#000",
+                            fontSize: 72,
+                            fontWeight: "100"
+                        }
+                    },
+                    labels: {
+                        valueSuffix: "",
+                        style: {
+                            fontFamily: "Arial",
+                            color: "#000",
+                            fontSize: 36,
+                            fontWeight: "100"
+                        },
+                        formatter: function() {
+                            return "$" + comma(this.value) + "";
+                        }
+                    }
+                },
+                yAxis: {
+                    min: -3,
+                    tickPixelInterval: 50,
+                    title: {
+                        text: 'Test Scores',
+                        style: {
+                            fontFamily: "Source Sans Pro, Arial",
+                            color: "#000",
+                            fontSize: 24,
+                            fontWeight: "100"
+                        }
+                    },
+                    labels: {
+                        style: {
+                            fontFamily: "Source Sans Pro, Arial",
+                            color: "#aaa",
+                            fontSize: 13,
+                            fontWeight: "100"
+                        },
+                        formatter: function() {
+                            return "" + comma(this.value) + " g";
+                        }
+                    },
+                    lineColor: "#eee"
+                },
+                tooltip: {
+                    shadow: false,
+                    backgroundColor: "#ffffff",
+                    borderColor: "#444444",
+                    borderWidth: 2,
+                    useHTML: true,
+                    headerFormat: '<div class="tooltipHead">{point.key}</div>',
+                    formatter: function() {
+                        return "<div class='toolTipper'><b>" + this.series.name + "</b><br><div class='kicker'>Grades above/below avg.</div>" + comma(this.y) + "</div><div class='tooltipbottom'><div class='kicker'>Median income</div>$" + comma(this.key) + "</div>";
+                    },
+                    //          formatter: function() {
+                    //  return "<h2>" + this.series.name + "</h2><br><b>Density:</b> " +  Math.round(this.y) + " per sq. mile<br><b>Times won per 1,000 people:</b> " +  comma(this.x);
+                    // },
+                    style: {
+                        fontFamily: "Lato, Arial",
+                        color: "#333",
+                        fontSize: 14,
+                        opacity: 1,
+                        fontWeight: "400"
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0,
+                    enabled: false,
+                    itemStyle: {
+                        fontFamily: "Source Sans Pro, Arial",
+                        color: "#000",
+                        fontSize: 24,
+                        fontWeight: "100"
+                    }
+                },
+                series: data
+            });
+
+
+            function comma(val) {
+                while (/(\d+)(\d{3})/.test(val.toString())) {
+                    val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
+                }
+                return val;
+            }
+        });
+var data=[{
+"name": "ANDOVER SCHOOL DISTRICT",
+"data": [
+[ 86818, 1.7, 1.07]
+]
+},{
+"name": "ANSONIA SCHOOL DISTRICT",
+"data": [
+[ 60536, -0.4, 2.12]
+]
+},{
+"name": "ASHFORD SCHOOL DISTRICT",
+"data": [
+[ 81250, 0.5, 0.91]
+]
+},{
+"name": "AVON SCHOOL DISTRICT",
+"data": [
+[ 133214, 2.6, 2.68]
+]
+},{
+"name": "BARKHAMSTED SCHOOL DISTRICT",
+"data": [
+[ 104464, 1.4, 0.95]
+]
+},{
+"name": "BERLIN SCHOOL DISTRICT",
+"data": [
+[ 101136, 1.5, 2.31]
+]
+},{
+"name": "BETHANY SCHOOL DISTRICT",
+"data": [
+[ 124062, 1.5, 1.43]
+]
+},{
+"name": "BETHEL SCHOOL DISTRICT",
+"data": [
+[ 93281, 1.7, 2.31]
+]
+},{
+"name": "BLOOMFIELD SCHOOL DISTRICT",
+"data": [
+[ 74757, -0.5, 1.82]
+]
+},{
+"name": "BOLTON SCHOOL DISTRICT",
+"data": [
+[ 90789, 1.6, 1.11]
+]
+},{
+"name": "BOZRAH SCHOOL DISTRICT",
+"data": [
+[ 80000, 0.9, 0.81]
+]
+},{
+"name": "BRANFORD SCHOOL DISTRICT",
+"data": [
+[ 84423, 1.1, 2.5]
+]
+},{
+"name": "BRIDGEPORT SCHOOL DISTRICT",
+"data": [
+[ 40173, -1.7, 6.53]
+]
+},{
+"name": "BRISTOL SCHOOL DISTRICT",
+"data": [
+[ 69483, 0.3, 3.69]
+]
+},{
+"name": "BROOKFIELD SCHOOL DISTRICT",
+"data": [
+[ 139254, 1.8, 2.2]
+]
+},{
+"name": "BROOKLYN SCHOOL DISTRICT",
+"data": [
+[ 85526, 0.5, 1.59]
+]
+},{
+"name": "CANTERBURY SCHOOL DISTRICT",
+"data": [
+[ 86987, 1, 1.22]
+]
+},{
+"name": "CANTON SCHOOL DISTRICT",
+"data": [
+[ 105517, 1.9, 1.89]
+]
+},{
+"name": "CHAPLIN SCHOOL DISTRICT",
+"data": [
+[ 47250, 0.1, 0.72]
+]
+},{
+"name": "CHESHIRE SCHOOL DISTRICT",
+"data": [
+[ 127954, 2, 2.95]
+]
+},{
+"name": "CHESTER SCHOOL DISTRICT",
+"data": [
+[ 96153, 1.7, 0.96]
+]
+},{
+"name": "CLINTON SCHOOL DISTRICT",
+"data": [
+[ 88419, 1, 2.01]
+]
+},{
+"name": "COLCHESTER SCHOOL DISTRICT",
+"data": [
+[ 101875, 1.2, 2.22]
+]
+},{
+"name": "COLEBROOK SCHOOL DISTRICT",
+"data": [
+[ 77500, 1.5, 0.61]
+]
+},{
+"name": "COLUMBIA SCHOOL DISTRICT",
+"data": [
+[ 124999, 1, 1.18]
+]
+},{
+"name": "COVENTRY SCHOOL DISTRICT",
+"data": [
+[ 90202, 1.1, 1.86]
+]
+},{
+"name": "CROMWELL SCHOOL DISTRICT",
+"data": [
+[ 108250, 1.2, 1.86]
+]
+},{
+"name": "DANBURY SCHOOL DISTRICT",
+"data": [
+[ 66721, 0, 4.4]
+]
+},{
+"name": "DARIEN SCHOOL DISTRICT",
+"data": [
+[ 210909, 2.6, 3.02]
+]
+},{
+"name": "DEEP RIVER SCHOOL DISTRICT",
+"data": [
+[ 73124, 1.4, 1.17]
+]
+},{
+"name": "DERBY SCHOOL DISTRICT",
+"data": [
+[ 55106, -0.8, 1.64]
+]
+},{
+"name": "EAST GRANBY SCHOOL DISTRICT",
+"data": [
+[ 111805, 1.6, 1.23]
+]
+},{
+"name": "EAST HADDAM SCHOOL DISTRICT",
+"data": [
+[ 87083, 1.1, 1.6]
+]
+},{
+"name": "EAST HAMPTON SCHOOL DISTRICT",
+"data": [
+[ 97045, 1.2, 1.87]
+]
+},{
+"name": "EAST HARTFORD SCHOOL DISTRICT",
+"data": [
+[ 51767, -1.4, 3.44]
+]
+},{
+"name": "EAST HAVEN SCHOOL DISTRICT",
+"data": [
+[ 65833, -0.5, 2.46]
+]
+},{
+"name": "EAST LYME SCHOOL DISTRICT",
+"data": [
+[ 120317, 1.9, 2.36]
+]
+},{
+"name": "EAST WINDSOR SCHOOL DISTRICT",
+"data": [
+[ 70639, 0, 1.39]
+]
+},{
+"name": "EASTFORD SCHOOL DISTRICT",
+"data": [
+[ 92499, 1.5, 0.55]
+]
+},{
+"name": "EASTON SCHOOL DISTRICT",
+"data": [
+[ 172058, 2.4, 1.62]
+]
+},{
+"name": "ELLINGTON SCHOOL DISTRICT",
+"data": [
+[ 99422, 1.5, 2.29]
+]
+},{
+"name": "ENFIELD SCHOOL DISTRICT",
+"data": [
+[ 80460, 0.7, 2.9]
+]
+},{
+"name": "ESSEX SCHOOL DISTRICT",
+"data": [
+[ 103571, 1.8, 1.33]
+]
+},{
+"name": "FAIRFIELD SCHOOL DISTRICT",
+"data": [
+[ 157857, 2, 4.4]
+]
+},{
+"name": "FARMINGTON SCHOOL DISTRICT",
+"data": [
+[ 109797, 2.4, 2.67]
+]
+},{
+"name": "FRANKLIN SCHOOL DISTRICT",
+"data": [
+[ 86500, 1.6, 0.69]
+]
+},{
+"name": "GLASTONBURY SCHOOL DISTRICT",
+"data": [
+[ 129798, 2, 3.57]
+]
+},{
+"name": "GRANBY SCHOOL DISTRICT",
+"data": [
+[ 121099, 2.3, 2.02]
+]
+},{
+"name": "GREENWICH SCHOOL DISTRICT",
+"data": [
+[ 170419, 2, 3.98]
+]
+},{
+"name": "GRISWOLD SCHOOL DISTRICT",
+"data": [
+[ 81166, 0.1, 1.84]
+]
+},{
+"name": "GROTON SCHOOL DISTRICT",
+"data": [
+[ 68948, 0.3, 2.77]
+]
+},{
+"name": "GUILFORD SCHOOL DISTRICT",
+"data": [
+[ 120918, 2.3, 2.74]
+]
+},{
+"name": "HAMDEN SCHOOL DISTRICT",
+"data": [
+[ 85076, 0, 3.34]
+]
+},{
+"name": "HAMPTON SCHOOL DISTRICT",
+"data": [
+[ 87142, 0, 0.61]
+]
+},{
+"name": "HARTFORD SCHOOL DISTRICT",
+"data": [
+[ 27065, -1.7, 6.55]
+]
+},{
+"name": "HARTLAND SCHOOL DISTRICT",
+"data": [
+[ 96666, 1.9, 0.65]
+]
+},{
+"name": "HEBRON SCHOOL DISTRICT",
+"data": [
+[ 110000, 2, 1.95]
+]
+},{
+"name": "KILLINGLY SCHOOL DISTRICT",
+"data": [
+[ 67989, 0, 2.13]
+]
+},{
+"name": "LEBANON SCHOOL DISTRICT",
+"data": [
+[ 84615, 0.9, 1.4]
+]
+},{
+"name": "LEDYARD SCHOOL DISTRICT",
+"data": [
+[ 93144, 1.3, 2.07]
+]
+},{
+"name": "LISBON SCHOOL DISTRICT",
+"data": [
+[ 90833, 0.4, 1.01]
+]
+},{
+"name": "LITCHFIELD SCHOOL DISTRICT",
+"data": [
+[ 113475, 1.6, 1.48]
+]
+},{
+"name": "MADISON SCHOOL DISTRICT",
+"data": [
+[ 143137, 2.3, 2.64]
+]
+},{
+"name": "MANCHESTER SCHOOL DISTRICT",
+"data": [
+[ 66352, -0.1, 3.21]
+]
+},{
+"name": "MANSFIELD SCHOOL DISTRICT",
+"data": [
+[ 78636, 1.7, 1.84]
+]
+},{
+"name": "MARLBOROUGH SCHOOL DISTRICT",
+"data": [
+[ 116406, 2.1, 1.45]
+]
+},{
+"name": "MERIDEN SCHOOL DISTRICT",
+"data": [
+[ 46078, -0.9, 3.48]
+]
+},{
+"name": "MIDDLETOWN SCHOOL DISTRICT",
+"data": [
+[ 69654, 0.1, 2.84]
+]
+},{
+"name": "MILFORD SCHOOL DISTRICT",
+"data": [
+[ 96263, 1, 3.47]
+]
+},{
+"name": "MONROE SCHOOL DISTRICT",
+"data": [
+[ 121376, 1.9, 2.46]
+]
+},{
+"name": "MONTVILLE SCHOOL DISTRICT",
+"data": [
+[ 68947, 0.4, 2.11]
+]
+},{
+"name": "NAUGATUCK SCHOOL DISTRICT",
+"data": [
+[ 62708, -0.3, 2.88]
+]
+},{
+"name": "NEW BRITAIN SCHOOL DISTRICT",
+"data": [
+[ 36974, -2.4, 4.04]
+]
+},{
+"name": "NEW CANAAN SCHOOL DISTRICT",
+"data": [
+[ 217061, 2.7, 2.81]
+]
+},{
+"name": "NEW FAIRFIELD SCHOOL DISTRICT",
+"data": [
+[ 115277, 1.3, 2.26]
+]
+},{
+"name": "NEW HARTFORD SCHOOL DISTRICT",
+"data": [
+[ 100806, 2, 1.51]
+]
+},{
+"name": "NEW HAVEN SCHOOL DISTRICT",
+"data": [
+[ 34849, -1.3, 6.27]
+]
+},{
+"name": "NEW LONDON SCHOOL DISTRICT",
+"data": [
+[ 36691, -1.5, 2.61]
+]
+},{
+"name": "NEW MILFORD SCHOOL DISTRICT",
+"data": [
+[ 102500, 0.7, 3.06]
+]
+},{
+"name": "NEWINGTON SCHOOL DISTRICT",
+"data": [
+[ 81536, 1.1, 2.84]
+]
+},{
+"name": "NEWTOWN SCHOOL DISTRICT",
+"data": [
+[ 130077, 2.3, 3.23]
+]
+},{
+"name": "NORFOLK SCHOOL DISTRICT",
+"data": [
+[ 99166, 1.1, 0.61]
+]
+},{
+"name": "NORTH BRANFORD SCHOOL DISTRIC",
+"data": [
+[ 89663, 0.7, 2.01]
+]
+},{
+"name": "NORTH HAVEN SCHOOL DISTRICT",
+"data": [
+[ 102723, 0.9, 2.62]
+]
+},{
+"name": "NORTH STONINGTON SCHOOL DISTR",
+"data": [
+[ 87878, 1.1, 1.13]
+]
+},{
+"name": "NORWALK SCHOOL DISTRICT",
+"data": [
+[ 78540, 0.1, 4.45]
+]
+},{
+"name": "NORWICH SCHOOL DISTRICT",
+"data": [
+[ 54740, -0.9, 3.22]
+]
+},{
+"name": "OLD SAYBROOK SCHOOL DISTRICT",
+"data": [
+[ 93103, 1.4, 1.76]
+]
+},{
+"name": "ORANGE SCHOOL DISTRICT",
+"data": [
+[ 124582, 2.1, 2.21]
+]
+},{
+"name": "OXFORD SCHOOL DISTRICT",
+"data": [
+[ 119096, 1.2, 2.06]
+]
+},{
+"name": "PLAINFIELD SCHOOL DISTRICT",
+"data": [
+[ 69599, 0.1, 2.22]
+]
+},{
+"name": "PLAINVILLE SCHOOL DISTRICT",
+"data": [
+[ 83852, 0.8, 2.08]
+]
+},{
+"name": "PLYMOUTH SCHOOL DISTRICT",
+"data": [
+[ 80978, 0.3, 1.68]
+]
+},{
+"name": "POMFRET SCHOOL DISTRICT",
+"data": [
+[ 76346, 1.4, 1.16]
+]
+},{
+"name": "PORTLAND SCHOOL DISTRICT",
+"data": [
+[ 103500, 1.5, 1.7]
+]
+},{
+"name": "PRESTON SCHOOL DISTRICT",
+"data": [
+[ 81136, 1, 1.19]
+]
+},{
+"name": "PUTNAM SCHOOL DISTRICT",
+"data": [
+[ 77750, -0.5, 1.48]
+]
+},{
+"name": "REDDING SCHOOL DISTRICT",
+"data": [
+[ 165740, 2.4, 1.75]
+]
+},{
+"name": "REGIONAL SCHOOL DISTRICT 06",
+"data": [
+[ 92962, 0.9, 1.43]
+]
+},{
+"name": "REGIONAL SCHOOL DISTRICT 10",
+"data": [
+[ 118408, 1.5, 2.09]
+]
+},{
+"name": "REGIONAL SCHOOL DISTRICT 12",
+"data": [
+[ 87000, 1.6, 0]
+]
+},{
+"name": "REGIONAL SCHOOL DISTRICT 13",
+"data": [
+[ 113851, 1.2, 1.99]
+]
+},{
+"name": "REGIONAL SCHOOL DISTRICT 14",
+"data": [
+[ 108035, 1.3, 1.64]
+]
+},{
+"name": "REGIONAL SCHOOL DISTRICT 15",
+"data": [
+[ 121874, 1.8, 2.91]
+]
+},{
+"name": "REGIONAL SCHOOL DISTRICT 16",
+"data": [
+[ 99810, 0.8, 2.22]
+]
+},{
+"name": "REGIONAL SCHOOL DISTRICT 17",
+"data": [
+[ 108274, 1.8, 2.21]
+]
+},{
+"name": "REGIONAL SCHOOL DISTRICT 18",
+"data": [
+[ 109000, 1.9, 1.78]
+]
+},{
+"name": "RIDGEFIELD SCHOOL DISTRICT",
+"data": [
+[ 191944, 2.6, 3.17]
+]
+},{
+"name": "ROCKY HILL SCHOOL DISTRICT",
+"data": [
+[ 81944, 1.5, 2.13]
+]
+},{
+"name": "SALEM SCHOOL DISTRICT",
+"data": [
+[ 111166, 1.8, 1]
+]
+},{
+"name": "SALISBURY SCHOOL DISTRICT",
+"data": [
+[ 76000, 1.8, 0.87]
+]
+},{
+"name": "SCOTLAND SCHOOL DISTRICT",
+"data": [
+[ 74624, 0.6, 0.57]
+]
+},{
+"name": "SEYMOUR SCHOOL DISTRICT",
+"data": [
+[ 91586, 0.7, 2.14]
+]
+},{
+"name": "SHELTON SCHOOL DISTRICT",
+"data": [
+[ 98265, 1.2, 3.35]
+]
+},{
+"name": "SHERMAN SCHOOL DISTRICT",
+"data": [
+[ 128333, 1.5, 0.94]
+]
+},{
+"name": "SIMSBURY SCHOOL DISTRICT",
+"data": [
+[ 143281, 2.5, 2.97]
+]
+},{
+"name": "SOMERS SCHOOL DISTRICT",
+"data": [
+[ 116796, 1.1, 1.67]
+]
+},{
+"name": "SOUTH WINDSOR SCHOOL DISTRICT",
+"data": [
+[ 101565, 1.6, 2.93]
+]
+},{
+"name": "SOUTHINGTON SCHOOL DISTRICT",
+"data": [
+[ 99449, 1.6, 3.73]
+]
+},{
+"name": "STAFFORD SCHOOL DISTRICT",
+"data": [
+[ 81802, 1, 1.77]
+]
+},{
+"name": "STAMFORD SCHOOL DISTRICT",
+"data": [
+[ 70400, 0, 5.42]
+]
+},{
+"name": "STERLING SCHOOL DISTRICT",
+"data": [
+[ 59899, 0, 1.19]
+]
+},{
+"name": "STONINGTON SCHOOL DISTRICT",
+"data": [
+[ 83430, 1, 2.12]
+]
+},{
+"name": "STRATFORD SCHOOL DISTRICT",
+"data": [
+[ 79827, 0.5, 3.65]
+]
+},{
+"name": "SUFFIELD SCHOOL DISTRICT",
+"data": [
+[ 106250, 1.7, 2.12]
+]
+},{
+"name": "THOMASTON SCHOOL DISTRICT",
+"data": [
+[ 85326, 0.6, 1.26]
+]
+},{
+"name": "THOMPSON SCHOOL DISTRICT",
+"data": [
+[ 71249, 0.1, 1.36]
+]
+},{
+"name": "TOLLAND SCHOOL DISTRICT",
+"data": [
+[ 118478, 1.7, 2.44]
+]
+},{
+"name": "TORRINGTON SCHOOL DISTRICT",
+"data": [
+[ 55393, 0.2, 2.89]
+]
+},{
+"name": "TRUMBULL SCHOOL DISTRICT",
+"data": [
+[ 127688, 2.1, 3.41]
+]
+},{
+"name": "VERNON SCHOOL DISTRICT",
+"data": [
+[ 65658, 0.1, 2.26]
+]
+},{
+"name": "VOLUNTOWN SCHOOL DISTRICT",
+"data": [
+[ 72136, 0.9, 0.87]
+]
+},{
+"name": "WALLINGFORD SCHOOL DISTRICT",
+"data": [
+[ 87411, 0.8, 3.45]
+]
+},{
+"name": "WATERBURY SCHOOL DISTRICT",
+"data": [
+[ 34617, -1.3, 5.77]
+]
+},{
+"name": "WATERFORD SCHOOL DISTRICT",
+"data": [
+[ 108970, 1.3, 2.37]
+]
+},{
+"name": "WATERTOWN SCHOOL DISTRICT",
+"data": [
+[ 90856, 0.5, 2.33]
+]
+},{
+"name": "WEST HARTFORD SCHOOL DISTRICT",
+"data": [
+[ 100085, 1.5, 4.13]
+]
+},{
+"name": "WEST HAVEN SCHOOL DISTRICT",
+"data": [
+[ 54541, -0.6, 3.27]
+]
+},{
+"name": "WESTBROOK SCHOOL DISTRICT",
+"data": [
+[ 71699, 1.2, 1.22]
+]
+},{
+"name": "WESTON SCHOOL DISTRICT",
+"data": [
+[ 212426, 2.4, 2.18]
+]
+},{
+"name": "WESTPORT SCHOOL DISTRICT",
+"data": [
+[ 201946, 2.6, 3.34]
+]
+},{
+"name": "WETHERSFIELD SCHOOL DISTRICT",
+"data": [
+[ 108421, 1.1, 2.54]
+]
+},{
+"name": "WILLINGTON SCHOOL DISTRICT",
+"data": [
+[ 82500, 0.8, 1.13]
+]
+},{
+"name": "WILTON SCHOOL DISTRICT",
+"data": [
+[ 210659, 2.5, 2.92]
+]
+},{
+"name": "WINCHESTER SCHOOL DISTRICT",
+"data": [
+[ 58683, -0.2, 1.41]
+]
+},{
+"name": "WINDHAM SCHOOL DISTRICT",
+"data": [
+[ 34999, -2, 2.18]
+]
+},{
+"name": "WINDSOR SCHOOL DISTRICT",
+"data": [
+[ 90793, 0.1, 2.41]
+]
+},{
+"name": "WINDSOR LOCKS SCHOOL DISTRICT",
+"data": [
+[ 77917, 0.1, 1.64]
+]
+},{
+"name": "WOLCOTT SCHOOL DISTRICT",
+"data": [
+[ 85000, 1.6, 2.41]
+]
+},{
+"name": "WOODBRIDGE SCHOOL DISTRICT",
+"data": [
+[ 154167, 2.6, 1.55]
+]
+},{
+"name": "WOODSTOCK SCHOOL DISTRICT",
+"data": [
+[ 84659, 1.2, 1.58]
+]
+}];
+
+
+
+
+
+
+        </script>
+</body>
+
+</html>

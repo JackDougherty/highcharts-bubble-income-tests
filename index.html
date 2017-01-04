@@ -1,23 +1,23 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="utf-8">
-  <title>Family Income and Educational Outcomes</title>
-  <!-- load jQuery and Highcharts -->
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/data.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  	<title>Bubble chart with Highcharts</title>
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <!-- load jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+    <!-- load Highcharts, Highcharts-more, and modules -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
 </head>
-
 <body>
-  <div id="container"></div>
-  <div></br>Median Family Income and School District 6th Grade Average NAEP Math/Reading Scores by grade levels below/above, 2009-12. </div>
-        <script>
+<div id="container" style="width:100%; height:400px;"></div>
+<div id="source">Median Family Income and School District 6th Grade Average NAEP Math/Reading Scores by grade levels below/above, 2009-12.</div>
+<script>
         $(function() {
             Highcharts.chart('container', {
                 chart: {
@@ -893,12 +893,6 @@ var data=[{
 ]
 }];
 
-
-
-
-
-
-        </script>
+</script>
 </body>
-
 </html>

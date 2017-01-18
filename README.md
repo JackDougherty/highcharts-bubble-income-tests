@@ -1,6 +1,9 @@
 # highcharts-examples
 different types of charts with hard-coded data
 
+## about Highcharts
+http://www.highcharts.com - free for personal website, a school site, or non-profit organizations; commercial use requires a license
+
 ## demo bubble-income-tests-ct
 - https://jackdougherty.github.io/highcharts-examples/bubble-income-tests-ct.html
 

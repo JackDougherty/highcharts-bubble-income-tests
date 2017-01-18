@@ -2,7 +2,7 @@
 different types of charts with hard-coded data
 
 ## demo bubble-income-tests-ct
-- https://jackdougherty.github.io/highcharts-examples/bubble-income-tests-ct/
+- https://jackdougherty.github.io/highcharts-examples/bubble-income-tests-ct.html
 
 ### data and credits
 - Andrew Ba Tran, CT Mirror/TrendCT http://trendct.org/2016/05/06/wealth-and-grades-compare-connecticuts-school-districts/, see open data https://github.com/trendct/data/tree/master/2016/05/stanford-cepa
@@ -11,8 +11,8 @@ different types of charts with hard-coded data
 
 - Based on Andrew's note in his story, I manually corrected Salisbury median family income to $76,000 (not exact)
 
-## demo bubble-fat-sugar
-- https://jackdougherty.github.io/highcharts-examples/bubble-fat-sugar/
+## demo bubble-sugar-fat
+- https://jackdougherty.github.io/highcharts-examples/bubble-sugar-fat.html
 
 ## demo bar-fruit
-- https://jackdougherty.github.io/highcharts-examples/bar-fruit/
+- https://jackdougherty.github.io/highcharts-examples/bar-fruit.html
